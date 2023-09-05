@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Part;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class FrontController extends Controller
 {
@@ -20,8 +21,10 @@ class FrontController extends Controller
     public function home($slug)
     {
         $prodi = Prodi::where('slug', $slug)->first();
-
+        $artikel = json_decode(Http::get("http://127.0.0.1:8080/api/artikel"));
+        // return json_decode(Http::get("http://127.0.0.1:8080/api/artikel"));
         return view('home', [
+            'artikel' => $artikel,
             'slug_prodi' => $slug,
             'header' => Part::where('prodi_id',$prodi->id)->where('kode','header')->first(),
             'seo_title' => Part::where('prodi_id',$prodi->id)->where('kode','seo_title')->first(),
