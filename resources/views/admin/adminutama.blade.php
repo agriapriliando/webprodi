@@ -250,8 +250,8 @@
                                                         <div class="d-flex">
                                                             <a href="{{ url('admin/users/'.$item->id) }}" class="btn btn-warning btn-sm me-1"><i class="bi bi-pencil"></i></a>
                                                             @if ($item->id <> 1)
-                                                            <button data-url="{{ url('admin/users/'.$item->id.'/destroy') }}" class="btn btn-danger btn-sm removeakun" data-nama="{{ $item->nama }}" data-id="{{ $item->id }}" type="button"><i class="bi bi-trash"></i></button>
-                                                            @endif
+                                                                <button data-url="{{ url('admin/users/'.$item->id.'/destroy') }}" class="btn btn-danger btn-sm removeakun" data-nama="{{ $item->nama }}" data-id="{{ $item->id }}" type="button"><i class="bi bi-trash"></i></button>
+                                                                @endif
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -420,12 +420,13 @@
                                         <div class="mb-3 ">
                                             <label class="form-label">Nama UPPS :</label>
                                             <select class="form-control @error('upps') is-invalid @enderror" name="upps" style="background-color: rgb(242, 242, 242);">
-                                                <option >====pilih upps====</option>
+                                                <option>====pilih upps====</option>
                                                 <option value="Fakultas Keguruan dan Ilmu Pendidikan Kristen">Fakultas Keguruan dan Ilmu Pendidikan Kristen</option>
                                                 <option value="Fakultas Ilmu Sosial Keagamaan Kristen">Fakultas Ilmu Sosial Keagamaan Kristen</option>
                                                 <option value="Fakultas Seni Keagamaan Kristen">Fakultas Seni Keagamaan Kristen</option>
+                                                <option value="Pascasarjana">Pascasarjana</option>
                                                 <option value="IAKN PKY">IAKN Palangka Raya</option>
-                                              </select>
+                                            </select>
                                             @error('upps')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
