@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Part;
 use App\Models\Prodi;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,11 +14,11 @@ class LoginController extends Controller
     public function index()
     {
         $daftarweb = Prodi::all();
-        return view('login', compact('daftarweb'));
         if (session('namauser')) {
             $prodi = User::find(session('iduser'))->prodis()->orderBy('id')->first();
             return redirect('admin/'.$prodi->slug)->with('status', 'Selamat Datang '. Auth::user()->nama);
         }
+        return view('login', compact('daftarweb'));
     }
 
     public function login(Request $request)
@@ -38,8 +39,11 @@ class LoginController extends Controller
             }
             $request->session()->put('hakakses',$daftarid);
             $prodi = User::find(session('iduser'))->prodis()->orderBy('id')->first();
+            User::where('id', session('iduser'))->update([
+                'last_login' => Carbon::now()->toDateTimeString(),
+            ]);
             if(session('iduser') == 1) {
-                return redirect('admin/users')->with('status', 'Selamat Datang Admin Utama'. Auth::user()->nama);
+                return redirect('admin/utama')->with('status', 'Selamat Datang Admin Utama'. Auth::user()->nama);
             }
             return redirect('admin/'.$prodi->slug)->with('status', 'Selamat Datang '. Auth::user()->nama);
         }

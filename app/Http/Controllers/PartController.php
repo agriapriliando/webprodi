@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\Part;
 use App\Models\Prodi;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 // use Illuminate\Support\Facades\Request;
@@ -127,6 +129,14 @@ class PartController extends Controller
             'link' => $link,
         ]);
 
+        if(session('iduser') <> 1) {
+            Log::insert([
+                'user_id' => session('iduser'),
+                'aktivitas' => "Update ".$slug."/".$part,
+                'created_at' => Carbon::now(),
+            ]);
+        }
+
         return redirect('part/'.$slug.'/'.$part)->with('status', $part.' Berhasil dirubah');
     }
 
@@ -134,6 +144,13 @@ class PartController extends Controller
     {
         $prodi = Prodi::where('slug', $slug)->first();
         $link = Part::where('prodi_id',$prodi->id)->where('kode', $part)->first();
+        if(session('iduser') <> 1) {
+            Log::insert([
+                'user_id' => session('iduser'),
+                'aktivitas' => "Hapus Link ".$slug."/".$link->teks,
+                'created_at' => Carbon::now(),
+            ]);
+        }
         $link->delete();
 
         return response()->json([
@@ -158,6 +175,14 @@ class PartController extends Controller
             'kode' => $kode,
         ]);
 
+        if(session('iduser') <> 1) {
+            Log::insert([
+                'user_id' => session('iduser'),
+                'aktivitas' => "Tambah Link ".$request->slug."/".$request->teks,
+                'created_at' => Carbon::now(),
+            ]);
+        }
+
         return response()->json([
             'status' => true,
             'message' => 'Link '.$request->teks.' Berhasil ditambahkan',
@@ -175,6 +200,14 @@ class PartController extends Controller
         $filelama = Part::where('prodi_id',$prodi->id)->where('kode', $part)->first();
         // hapus file lama
         Storage::delete($filelama->link);
+
+        if(session('iduser') <> 1) {
+            Log::insert([
+                'user_id' => session('iduser'),
+                'aktivitas' => "Ganti Foto ".$slug."/".$part,
+                'created_at' => Carbon::now(),
+            ]);
+        }
 
         // file baru
         $path = $request->file('link')->store('img');

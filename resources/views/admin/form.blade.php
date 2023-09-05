@@ -58,7 +58,9 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="{{ url('admin/'.$slug) }}">{{ $header->teks }}</a></h1>
+            <div style="max-width: 300px">
+                <h1 class="logo" style="font-size: 14px"><a href="{{ url('') }}">{{ $header->teks }}</a></h1>
+            </div>
             <!-- Uncomment below if you prefer to use an image logo -->
             <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
 
@@ -128,7 +130,6 @@
                         </ul>
                     </li>
                     <li><a class="nav-link scrollto" href="{{ url('logout') }}"><i style="font-size: 19px" class="bi bi-box-arrow-in-right me-2"></i> Logout</a></li>
-                    <li><a class="getstarted scrollto" href="{{ url($pal3->link) }}">{{ strtoupper($pal3->teks) }}</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

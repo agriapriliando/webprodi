@@ -33,7 +33,7 @@
     <meta name="twitter:description" content="{{ $seo_deskripsi->teks }}">
 
     <!--Favicon-->
-    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/'.$seo_image->link) }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/seo_default.jpg') }}" />
 
     <meta name="csrf-token" content="9Yl84flE1ZuGjvnMjkqxeIpiAGfl0damtGqR9Bvt">
 
@@ -84,9 +84,11 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="{{ url('') }}">{{ $header->teks }}</a></h1>
+            <div style="max-width: 100px">
+                <h1 class="logo" style="font-size: 14px"><a href="{{ url('') }}">{{ $header->teks }}</a></h1>
+            </div>
             <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+            {{-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> --}}
 
             <nav id="navbar" class="navbar">
                 <ul>

@@ -21,8 +21,7 @@ class FrontController extends Controller
     public function home($slug)
     {
         $prodi = Prodi::where('slug', $slug)->first();
-        $artikel = json_decode(Http::get("http://127.0.0.1:8080/api/artikel"));
-        // return json_decode(Http::get("http://127.0.0.1:8080/api/artikel"));
+        $artikel = json_decode(Http::get("https://iaknpky.ac.id/api/artikel"));
         return view('home', [
             'artikel' => $artikel,
             'slug_prodi' => $slug,

@@ -59,7 +59,9 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="{{ asset('') }}">Kelola Pengguna</a></h1>
+            <div style="max-width: 300px">
+                <h1 class="logo" style="font-size: 14px"><a href="{{ url('') }}">Kelola</a></h1>
+            </div>
             <!-- Uncomment below if you prefer to use an image logo -->
             <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
 
@@ -73,7 +75,6 @@
                         </ul>
                     </li>
                     <li><a class="nav-link scrollto" href="{{ asset('') }}logout"><i style="font-size: 19px" class="bi bi-box-arrow-in-right me-2"></i> Logout</a></li>
-                    <li><a class="getstarted scrollto" href="https://api.whatsapp.com/send/?phone=6281244525709">INFO PENDAFTARAN</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -104,9 +105,13 @@
     <!-- End Hero -->
     <!-- Start Form -->
     <div class="container p-3">
-        <div class="row mb-1">
-            <span class="btn btn-warning p-2">Selamat Datang Administrator - Anda Login Akun Utama Sebagai Agri Apriliando
-                <a href="{{ asset('') }}logout" style="text-decoration: underline"><i class="bi bi-box-arrow-in-right"></i> Klik untuk Logout</a></span>
+        <div class="row">
+            <span class="btn btn-warning p-2">Selamat Datang Administrator - Anda Login Sebagai {{ session('namauser') }}
+                <a href="{{ url('logout') }}" style="text-decoration: underline"><i class="bi bi-box-arrow-in-right"></i> Klik untuk Logout</a>
+                @if (session('iduser') == 1)
+                    <a href="{{ url('admin/utama') }}"><i class="bi bi-file-earmark-lock ms-2"></i></a>
+                @endif
+            </span>
         </div>
         <div class="row">
             @if (session('status'))

@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminutamaController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PartController;
+use App\Http\Middleware\CekAdminUtama;
+use App\Http\Middleware\CekHakAkses;
 use Illuminate\Support\Facades\Route;
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
