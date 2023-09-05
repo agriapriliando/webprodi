@@ -38,10 +38,10 @@ class LoginController extends Controller
             }
             $request->session()->put('hakakses',$daftarid);
             $prodi = User::find(session('iduser'))->prodis()->orderBy('id')->first();
-            return redirect('admin/'.$prodi->slug)->with('status', 'Selamat Datang '. Auth::user()->nama);
             if(session('iduser') == 1) {
                 return redirect('admin/users')->with('status', 'Selamat Datang Admin Utama'. Auth::user()->nama);
             }
+            return redirect('admin/'.$prodi->slug)->with('status', 'Selamat Datang '. Auth::user()->nama);
         }
         return redirect('/')->with('status', 'Login Gagal');
     }
