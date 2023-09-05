@@ -1,0 +1,18 @@
+<select class="form-select" id="basic-usage" data-placeholder="Choose one thing">
+    <option></option>
+    <option>Reactive</option>
+    <option>Solution</option>
+    <option>Conglomeration</option>
+    <option>Algoritm</option>
+    <option>Holistic</option>
+</select>
+
+<script>
+$(document).ready(function(){
+    $( '#basic-usage' ).select2( {
+        theme: "bootstrap-5",
+        width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+        placeholder: $( this ).data( 'placeholder' ),
+    } );
+});
+</script>
