@@ -110,17 +110,26 @@ class AdminutamaController extends Controller
             'jenjang' => 'required',
             'upps' => 'required'
         ]);
+        // nama image
+        $namaimg = rand(10,100).$request->jenjang.Str::slug($request->nama_prodi);
         // copy file default
-        Storage::copy('img/seo_awal.jpg', 'img/seo_'.Str::slug($request->nama_prodi).'.jpg');
-        Storage::copy('img/foto_awal.png', 'img/foto1_'.Str::slug($request->nama_prodi).'.png');
-        Storage::copy('img/foto_awal.png', 'img/foto2_'.Str::slug($request->nama_prodi).'.png');
+        Storage::copy('img/seo_awal.jpg', 'img/'.$namaimg.'_seo.jpg');
+        Storage::copy('img/foto_awal.png', 'img/'.$namaimg.'_foto1.png');
+        Storage::copy('img/foto_awal.png', 'img/'.$namaimg.'_foto2.png');
 
-        DB::transaction(function () use ($request) {
+        $akronim = $request->jenjang;
+        $words = explode(" ",$request->nama_prodi);
+        foreach($words as $c) {
+            $akronim .= mb_substr($c,0,1);
+        }
+        $akronim = strtolower($akronim);
+
+        DB::transaction(function () use ($request, $namaimg, $akronim) {
             $prodi = Prodi::create([
                 'nama_prodi' => $request->nama_prodi,
                 'jenjang' => $request->jenjang,
                 'upps' => $request->upps,
-                'slug' => Str::slug($request->nama_prodi),
+                'slug' => $akronim,
             ]);
 
             // default saat user utama membuat website, maka akses lsg diberikan
@@ -143,7 +152,7 @@ class AdminutamaController extends Controller
                     'prodi_id' => $prodi->id,
                     'teks' => 'Foto untuk SEO',
                     'kode' => 'seo_image',
-                    'link' => 'img/seo_'.$prodi->slug.'.jpg',
+                    'link' => 'img/'.$namaimg.'seo.jpg',
                 ],
                 [
                     'prodi_id' => $prodi->id,
@@ -323,13 +332,13 @@ class AdminutamaController extends Controller
                     'prodi_id' => $prodi->id,
                     'teks' => '#',
                     'kode' => 'foto1',
-                    'link' => 'img/foto1_'.$prodi->slug.'.png',
+                    'link' => 'img/'.$namaimg.'_foto1.png',
                 ],
                 [
                     'prodi_id' => $prodi->id,
                     'teks' => '#',
                     'kode' => 'foto2',
-                    'link' => 'img/foto2_'.$prodi->slug.'.png',
+                    'link' => 'img/'.$namaimg.'_foto2.png',
                 ],
                 [
                     'prodi_id' => $prodi->id,
@@ -393,14 +402,15 @@ class AdminutamaController extends Controller
         $request->validate([
             'nama_prodi' => 'required',
             'jenjang' => 'required',
-            'upps' => 'required'
+            'upps' => 'required',
+            'slug' => 'required',
         ]);
 
         Prodi::where('id', $id)->update([
             'nama_prodi' => $request->nama_prodi,
             'jenjang' => $request->jenjang,
             'upps' => $request->upps,
-            'slug' => Str::slug($request->nama_prodi),
+            'slug' => $request->slug,
         ]);
 
         return redirect('admin/utama')->with('status', 'Informasi Website/Prodi '.$request->nama_prodi.' telah dirubah');

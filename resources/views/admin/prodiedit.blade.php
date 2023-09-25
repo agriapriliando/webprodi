@@ -144,6 +144,13 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="mb-3 ">
+                                <label class="form-label">Slug :</label>
+                                <input name="slug" style="background-color: rgb(242, 242, 242);" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug', $prodiedit->slug) }}">
+                                @error('slug')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-success rounded-4">Simpan</button>
                             </div>

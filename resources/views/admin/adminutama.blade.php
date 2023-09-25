@@ -506,6 +506,9 @@
                                                     datanama = $(this).attr("data-nama");
                                                     dataurl = $(this).attr("data-url");
                                                     console.log(dataurl);
+                                                    var formData = {
+                                                        '_token' : "{{ csrf_token() }}",
+                                                    };
                                                     swal.fire({
                                                         title: 'Hapus Data...',
                                                         icon: 'warning',
@@ -519,9 +522,7 @@
                                                                 $.ajax({
                                                                     url: ""+dataurl+"",
                                                                     type: 'DELETE',
-                                                                    headers: {
-                                                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                                                    },
+                                                                    data: formData,
                                                                     success: function(data) {
                                                                         console.log(data['message']);
                                                                         swal.fire({

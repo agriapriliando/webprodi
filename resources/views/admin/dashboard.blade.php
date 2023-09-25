@@ -653,6 +653,22 @@
     </footer>
     <!-- End Footer -->
 
+    <style>
+        .button-whatsapp {
+            position: fixed;
+            right: 15px;
+            bottom: 60px;
+            z-index: 996;
+            border-radius: 4px;
+            transition: all 0.4s;
+        }
+        .button-whatsapp img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+    <a class="button-whatsapp {{ $whatsapp->link ? "" : "d-none" }}" href="{{ $whatsapp->link }}"><img src="{{ asset('assets/img/whatsapp-icon-logo-png.png') }}" alt=""></a>
+    
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     {{-- <div id="preloader"></div> --}}
 

@@ -95,7 +95,7 @@
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     @foreach ($fkipk as $g)
-                                    <a class="btn btn-warning" href="{{ url('/'.$g->slug) }}">{{ $g->nama_prodi }}</a>
+                                    <a class="btn btn-warning m-1" href="{{ url('/'.$g->slug) }}">{{ $g->nama_prodi }}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -106,10 +106,10 @@
                                     Fakultas Ilmu Sosial Keagamaan Kristen
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     @foreach ($fisik as $h)
-                                    <a class="btn btn-warning" href="{{ url('/'.$h->slug) }}">{{ $h->nama_prodi }}</a>
+                                    <a class="btn btn-warning m-1" href="{{ url('/'.$h->slug) }}">{{ $h->nama_prodi }}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -120,10 +120,10 @@
                                     Fakultas Seni Keagamaan Kristen
                                 </button>
                             </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div id="collapseThree" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     @foreach ($fskk as $j)
-                                    <a class="btn btn-warning" href="{{ url('/'.$j->slug) }}">{{ $j->nama_prodi }}</a>
+                                    <a class="btn btn-warning m-1" href="{{ url('/'.$j->slug) }}">{{ $j->nama_prodi }}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -134,10 +134,10 @@
                                     Pascasarjana
                                 </button>
                             </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div id="collapseFour" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     @foreach ($pasca as $k)
-                                    <a class="btn btn-warning" href="{{ url('/'.$k->slug) }}">{{ $k->nama_prodi }}</a>
+                                    <a class="btn btn-warning m-1" href="{{ url('/'.$k->slug) }}">{{ $k->nama_prodi }}</a>
                                     @endforeach
                                 </div>
                             </div>
