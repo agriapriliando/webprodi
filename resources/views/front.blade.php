@@ -10,22 +10,22 @@
     <title>Portal Program Studi</title>
 
     <!-- Favicons -->
-    <link href="http://127.0.0.1:8000/assets/img/favicon.png" rel="icon">
-    <link href="http://127.0.0.1:8000/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{ asset('') }}assets/img/favicon.png" rel="icon">
+    <link href="{{ asset('') }}assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="http://127.0.0.1:8000/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="http://127.0.0.1:8000/assets/css/bootstrap-new.css" rel="stylesheet">
-    <link href="http://127.0.0.1:8000/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="http://127.0.0.1:8000/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="http://127.0.0.1:8000/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="http://127.0.0.1:8000/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="{{ asset('') }}assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="{{ asset('') }}assets/css/bootstrap-new.css" rel="stylesheet">
+    <link href="{{ asset('') }}assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ asset('') }}assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="{{ asset('') }}assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="{{ asset('') }}assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="http://127.0.0.1:8000/assets/css/style.css" rel="stylesheet">
+    <link href="{{ asset('') }}assets/css/style.css" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Techie
@@ -48,7 +48,7 @@
         width: 100%;
         height: 100vh;
         background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%),
-            url("http://127.0.0.1:8000/assets/img/hero-bg.jpg") center center no-repeat;
+            url("{{ asset('') }}assets/img/hero-bg.jpg") center center no-repeat;
         /* background: linear-gradient(45deg, #7200c9, #9758c7), url("../img/hero-bg.jpg") center center no-repeat; */
         background-size: cover;
     }
@@ -154,16 +154,16 @@
 
 
     <!-- Vendor JS Files -->
-    <script src="http://127.0.0.1:8000/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="http://127.0.0.1:8000/assets/vendor/aos/aos.js"></script>
-    <script src="http://127.0.0.1:8000/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="http://127.0.0.1:8000/assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="http://127.0.0.1:8000/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="http://127.0.0.1:8000/assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="http://127.0.0.1:8000/assets/vendor/php-email-form/validate.js"></script>
+    <script src="{{ asset('') }}assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="{{ asset('') }}assets/vendor/aos/aos.js"></script>
+    <script src="{{ asset('') }}assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('') }}assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="{{ asset('') }}assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="{{ asset('') }}assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ asset('') }}assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="http://127.0.0.1:8000/assets/js/main.js"></script>
+    <script src="{{ asset('') }}assets/js/main.js"></script>
 
 </body>
 
